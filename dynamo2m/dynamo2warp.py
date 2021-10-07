@@ -3,10 +3,10 @@ import dynamotable
 import starfile
 import pandas as pd
 from eulerangles import convert_eulers
-from .utils import sanitise_micrograph_name, sanitise_m_starfile_name
+from .utils import sanitise_micrograph_name, sanitise_m_starfile_name, find_tomo_name
 
 
-def dynamo2warp(input_table_file, table_map_file, output_star_file):
+def dynamo2warp(input_table_file, table_map_file, output_star_file, ts_directory):
     # Read table file into dataframe
     table = dynamotable.read(input_table_file, table_map_file)
 
@@ -30,6 +30,11 @@ def dynamo2warp(input_table_file, table_map_file, output_star_file):
 
     # extract and sanitise micrograph names to ensure compatibility with M
     data['rlnMicrographName'] = table['tomo_file'].apply(sanitise_micrograph_name)
+    
+    # look for ts names in ts_directory
+    
+    table_tomon = table['tomo'].to_numpy()
+    data['rlnTomoName'] = find_tomo_name(table_tomon,ts_directory)
 
     # convert dict to dataframe
     df = pd.DataFrame.from_dict(data)
@@ -56,5 +61,10 @@ def dynamo2warp(input_table_file, table_map_file, output_star_file):
               prompt='Output STAR file',
               type=click.Path(),
               required=True)
-def cli(input_table_file, table_map_file, output_star_file):
-    dynamo2warp(input_table_file, table_map_file, output_star_file)
+@click.option('--ts_directory', '-ts',
+              prompt='Path to directory containing TS folders',
+              type=click.Path(),
+              required=True)
+	      
+def cli(input_table_file, table_map_file, output_star_file, ts_directory):
+    dynamo2warp(input_table_file, table_map_file, output_star_file, ts_directory)
