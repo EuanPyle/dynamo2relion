@@ -6,9 +6,9 @@ from eulerangles import convert_eulers
 from .utils import sanitise_micrograph_name, sanitise_m_starfile_name, find_tomo_name
 
 
-def dynamo2warp(input_table_file, table_map_file, output_star_file, ts_directory):
+def dynamo2warp(input_table_file, output_star_file, ts_directory):
     # Read table file into dataframe
-    table = dynamotable.read(input_table_file, table_map_file)
+    table = dynamotable.read(input_table_file)
 
     # Prep data for star file in dict
     data = {}
@@ -27,9 +27,6 @@ def dynamo2warp(input_table_file, table_map_file, output_star_file, ts_directory
     data['rlnAngleRot'] = eulers_warp[:, 0]
     data['rlnAngleTilt'] = eulers_warp[:, 1]
     data['rlnAnglePsi'] = eulers_warp[:, 2]
-
-    # extract and sanitise micrograph names to ensure compatibility with M
-    data['rlnMicrographName'] = table['tomo_file'].apply(sanitise_micrograph_name)
     
     # look for ts names in ts_directory
     
@@ -53,10 +50,6 @@ def dynamo2warp(input_table_file, table_map_file, output_star_file, ts_directory
               prompt='Input Dynamo table file',
               type=click.Path(),
               required=True)
-@click.option('--table_map_file', '-tm',
-              prompt='Input Dynamo table map file',
-              type=click.Path(),
-              required=True)
 @click.option('--output_star_file', '-o',
               prompt='Output STAR file',
               type=click.Path(),
@@ -66,5 +59,5 @@ def dynamo2warp(input_table_file, table_map_file, output_star_file, ts_directory
               type=click.Path(),
               required=True)
 	      
-def cli(input_table_file, table_map_file, output_star_file, ts_directory):
-    dynamo2warp(input_table_file, table_map_file, output_star_file, ts_directory)
+def cli(input_table_file, output_star_file, ts_directory):
+    dynamo2warp(input_table_file, output_star_file, ts_directory)
