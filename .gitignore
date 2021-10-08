@@ -4,3 +4,5 @@ setup.cfg
 MANIFEST
 build
 dist
+dynamo2relion/__pycache__/
+dynamo2relion.egg-info/
