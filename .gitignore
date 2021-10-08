@@ -2,3 +2,5 @@
 venv
 setup.cfg
 MANIFEST
+build
+dist
