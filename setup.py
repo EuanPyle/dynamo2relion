@@ -1,5 +1,5 @@
 from setuptools import setup
-from dynamo2m import __version__
+from dynamo2relion import __version__
 setup(
     name='dynamo2relion',
     version=__version__,
@@ -26,6 +26,6 @@ setup(
     ],
     entry_points='''
         [console_scripts]
-        dynamo2warp=dynamo2m.dynamo2warp:cli
+        dynamo2relion=dynamo2relion.dynamo2relion:cli
     ''',
 )
