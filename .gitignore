@@ -1,6 +1,4 @@
 .idea
 venv
 setup.cfg
-build
-dist
 MANIFEST
