@@ -4,16 +4,6 @@ import os
 import sys
 import numpy as np
 
-def sanitise_micrograph_name(micrograph_name: str) -> str:
-    """
-    Replaces tomogram name from warp reconstructions with corresponding tomostar file if appropriate
-    Ensures compatibility with M for subsequent STAR files
-    :param micrograph_name:
-    :return:
-    """
-    return re.sub(r".mrc_\d+.\d+Apx.mrc", ".mrc.tomostar", micrograph_name)
-
-
 def sanitise_m_starfile_name(starfile_name: str) -> str:
     """
     Makes sure STAR filename is properly formatted for import into M (requires _data.star)
