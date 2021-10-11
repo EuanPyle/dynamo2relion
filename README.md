@@ -1,13 +1,40 @@
-Based on dynamo2m by Alister Burt: https://github.com/alisterburt/dynamo2m
+# Dynamo2Relion
+## A Tiny Function to Convert Dynamo Tables to Star Files for RELION 4.0
 
-Requires dependencies in requirements.txt. 
+[![PyPI pyversions](https://img.shields.io/pypi/pyversions/dynamo2m.svg)](https://pypi.python.org/pypi/dynamo2m/)
+[![PyPI version](https://badge.fury.io/py/dynamo2m.svg)](https://pypi.python.org/pypi/dynamo2m/)
 
-Run via: python setup.py install
+Based on [dynamo2m][df1] by Alister Burt.
 
-On the command line type:
+## Installation
 
+Installation is carried out via:
+```sh
+pip install dynamo2relion
+```
+
+## Requirements
+
+Your directory containing the tilt series directories must be structured as follows:
+
+. TS_Directory #Directory containing all TS directories
+\u251c\u2500\u2500 TS_01 #TS directory containing TS_01              
+\u2502   \u251c\u2500\u2500 TS_01.mrc #TS_01  image stack. The file extension does not matter.        
+\u251c\u2500\u2500 TS_02              
+\u2502   \u251c\u2500\u2500 TS_02.mrc  #
+\u2514\u2500\u2500 etc...
+
+The program will ask you the path to TS_Directory. No directories other than the TS_* directories should be present in TS_Directory. Naming convention for the TS_* directories can be any mix of upper of lower case TS and any numbering convention desired. 
+
+## Usage
+
+Invoke from the command line via typing:
+```sh
 dynamo2relion
-
-Enter the path to the Dynamo table, the desired output file name, and the path to the directory containing the TS directories (e.g. within a directory called imod there are multiple directories called TS_01, TS_02 etc. Each TS_[number] directory has its own TS_[number].st file inside. In this program you would link to the directory called imod). Ensire that the directory containing the TS directories only has TS directories inside and no other directories or you will get an error.
-
-Takes Dynamo table and the path to the directories contain the TS files and generates a star file for import into RELION.
+```
+and input:
+```sh
+Input Dynamo table file: example.tbl
+Output STAR file: test.star
+Path to TS directory: /Path/to/directory/containing/ts/directories/as/shown/above
+```
