@@ -5,8 +5,10 @@ setup(
     version=__version__,
     packages=['dynamo2relion'],
     url='https://github.com/EuanPyle/dynamo2relion',
+    description='Program to convert Dynamo table to RELION 4.0-compatible star file.',
     license='BSD',
     author='epyle',
+    author_email='euanpyle@gmail.com',
     classifiers=[
         'License :: OSI Approved :: BSD License',
         'Natural Language :: English',
@@ -22,7 +24,8 @@ setup(
         'click',
         'starfile',
         'dynamotable',
-        'eulerangles'
+        'eulerangles',
+	'numpy'
     ],
     entry_points='''
         [console_scripts]

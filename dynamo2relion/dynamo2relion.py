@@ -9,7 +9,7 @@ from .utils import sanitise_m_starfile_name, find_tomo_name
 def dynamo2relion(input_table_file, output_star_file, ts_directory):
     # Read table file into dataframe
     table = dynamotable.read(input_table_file)
-
+    
     # Prep data for star file in dict
     data = {}
 
