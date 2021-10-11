@@ -2,7 +2,6 @@
 ## A Tiny Function to Convert Dynamo Tables to Star Files for RELION 4.0
 
 [![PyPI pyversions](https://img.shields.io/pypi/pyversions/dynamo2m.svg)](https://pypi.python.org/pypi/dynamo2m/)
-[![PyPI version](https://badge.fury.io/py/dynamo2m.svg)](https://pypi.python.org/pypi/dynamo2m/)
 
 Based on [dynamo2m](df1) by Alister Burt.
 
