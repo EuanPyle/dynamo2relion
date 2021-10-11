@@ -4,7 +4,7 @@ setup(
     name='dynamo2relion',
     version=__version__,
     packages=['dynamo2relion'],
-    url='https://github.com/EuanPyle/dynamo2relion/archive/refs/tags/v0.1.1.tar.gz',
+    url='https://github.com/EuanPyle/dynamo2relion/',
     description='Program to convert Dynamo table to RELION 4.0-compatible star file.',
     license='BSD',
     author='epyle',
