@@ -21,11 +21,11 @@ setup(
     ],
     python_requires='>=3.6',
     install_requires=[
+        'pandas',
         'click',
         'starfile',
         'dynamotable',
         'eulerangles',
-	'numpy'
     ],
     entry_points='''
         [console_scripts]
