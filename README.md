@@ -3,7 +3,7 @@
 
 [![PyPI pyversions](https://img.shields.io/pypi/pyversions/dynamo2m.svg)](https://pypi.python.org/pypi/dynamo2m/)
 
-Based on [dynamo2m](df1) by Alister Burt.
+Based on [dynamo2m](https://github.com/alisterburt/dynamo2m) by Alister Burt.
 
 ## Installation
 
