@@ -6,19 +6,19 @@ from eulerangles import convert_eulers
 from .utils import sanitise_m_starfile_name, find_tomo_name
 
 
-def dynamo2relion(input_table_file, output_star_file, ts_directory):
+def dynamo2relion(input_table_file, output_star_file, ts_directory, binning):
     # Read table file into dataframe
     table = dynamotable.read(input_table_file)
     
     # Prep data for star file in dict
     data = {}
 
-    # extract xyz into dict with relion style headings
+    # extract xyz into dict with relion style headings  convert binned coordinates to unbinned coordinates
     for axis in ('x', 'y', 'z'):
         heading = f'rlnCoordinate{axis.upper()}'
         shift_axis = f'd{axis}'
-        data[heading] = table[axis] + table[shift_axis]
-
+        data[heading] = (table[axis] + table[shift_axis]) * int(binning)
+     
     # extract and convert eulerangles
     eulers_dynamo = table[['tdrot', 'tilt', 'narot']].to_numpy()
     eulers_warp = convert_eulers(eulers_dynamo,
@@ -58,6 +58,10 @@ def dynamo2relion(input_table_file, output_star_file, ts_directory):
               prompt='Path to directory containing TS folders',
               type=click.Path(),
               required=True)
+@click.option('--binning', '-bi',
+              prompt='Binning level of Dynamo table (enter 1 for unbinned, binning is done using IMOD convention)',
+              type=click.Path(),
+              required=True)
 	      
-def cli(input_table_file, output_star_file, ts_directory):
-    dynamo2relion(input_table_file, output_star_file, ts_directory)
+def cli(input_table_file, output_star_file, ts_directory, binning):
+    dynamo2relion(input_table_file, output_star_file, ts_directory, binning)
