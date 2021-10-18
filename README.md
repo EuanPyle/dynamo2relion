@@ -17,9 +17,9 @@ pip install dynamo2relion
 Your directory containing the tilt series directories must be structured as follows:
 
 ```sh
-TS_Directory #Directory containing all TS directories
+TS_Directory #Directory containing all TS directories, link to this directory
 |
---> TS_01 #TS directory containing TS_01              
+--> TS_01 #Directory containing TS_01              
        |
        --> TS_01.mrc #TS_01  image stack. The file extension does not matter.        
 |
@@ -42,7 +42,7 @@ and input:
 ```sh
 Input Dynamo table file: example.tbl
 Output STAR file: test.star
-Path to TS directory: /Path/to/directory/containing/ts/directories/as/shown/above
+Path to TS directory: /Path/to/directory/containing/all/ts/directories/as/shown/above
 Binning level of Dynamo table (enter 1 for unbinned, binning is done using IMOD convention): 8
 ```
 
