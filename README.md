@@ -43,4 +43,7 @@ and input:
 Input Dynamo table file: example.tbl
 Output STAR file: test.star
 Path to TS directory: /Path/to/directory/containing/ts/directories/as/shown/above
+Binning level of Dynamo table (enter 1 for unbinned, binning is done using IMOD convention): 8
 ```
+
+Simply enter 1 is the coordinates of your particles in the Dynamo table were picked from an unbinned tomogram. If the tomogram the particles were picked in were binned, add the correct binning level: binning is done using IMOD convention, i.e. for a pixel size of 1 A/px, a binning size of 8 would yield 8 A/px. 
