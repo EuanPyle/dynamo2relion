@@ -46,4 +46,4 @@ Path to TS directory: /Path/to/directory/containing/all/ts/directories/as/shown/
 Binning level of Dynamo table (enter 1 for unbinned, binning is done using IMOD convention): 8
 ```
 
-Simply enter 1 is the coordinates of your particles in the Dynamo table were picked from an unbinned tomogram. If the tomogram the particles were picked in were binned, add the correct binning level: binning is done using IMOD convention, i.e. for a pixel size of 1 A/px, a binning size of 8 would yield 8 A/px. 
+For binning level, simply enter 1 if the coordinates of your particles in the Dynamo table were picked from an unbinned tomogram. If the tomograms the particles were picked in were binned, add the correct binning level: binning is done using IMOD convention, i.e. for a pixel size of 1 A/px, a binning level of 8 would yield 8 A/px. 
