@@ -47,3 +47,5 @@ Binning level of Dynamo table (enter 1 for unbinned, binning is done using IMOD 
 ```
 
 For binning level, simply enter 1 if the coordinates of your particles in the Dynamo table were picked from an unbinned tomogram. If the tomograms the particles were picked in were binned, add the correct binning level: binning is done using IMOD convention, i.e. for a pixel size of 1 A/px, a binning level of 8 would yield 8 A/px. 
+
+Please note, as of v 0.0.3, the Euler angles are imported as rlnTomoSubtomogram<angles>. This will cause RELION to reconstruct subtomograms in the same orientation as the reference. If you do not want to do this, simply change the labels at the top of the star file to rlnAngle<angles>.
