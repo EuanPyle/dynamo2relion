@@ -32,6 +32,10 @@ def dynamo2relion(input_table_file, output_star_file, ts_directory, binning):
     
     table_tomon = table['tomo'].to_numpy()
     data['rlnTomoName'] = find_tomo_name(table_tomon,ts_directory)
+    
+    # Keep track of individual objects within each tomogram with rlnObjectNumber (i.e. Dynamo table column 21)
+    
+    data['rlnObjectNumber'] = table['reg']
 
     # convert dict to dataframe
     df = pd.DataFrame.from_dict(data)
