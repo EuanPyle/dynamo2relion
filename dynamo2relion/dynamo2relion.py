@@ -24,9 +24,9 @@ def dynamo2relion(input_table_file, output_star_file, ts_directory, binning):
     eulers_warp = convert_eulers(eulers_dynamo,
                                  source_meta='dynamo',
                                  target_meta='warp')
-    data['rlnTomoSubtomogramRot'] = eulers_warp[:, 0]
-    data['rlnTomoSubtomogramTilt'] = eulers_warp[:, 1]
-    data['rlnTomoSubtomogramPsi'] = eulers_warp[:, 2]
+    data['rlnAngleRot'] = eulers_warp[:, 0]
+    data['rlnAngleTilt'] = eulers_warp[:, 1]
+    data['rlnAnglePsi'] = eulers_warp[:, 2]
     
     # look for ts names in ts_directory
     
