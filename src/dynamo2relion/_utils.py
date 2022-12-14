@@ -12,7 +12,7 @@ class IOConverter:
         if output_name is not None:
             self.output_name: str = output_name
         else:
-            self.output_name: str = self.generate_output_file_name(self.input_star) 
+            self.output_name: str = self.generate_output_file_name(self.input_table) 
     
     def generate_output_file_name(self, input_table: Path) -> Path:
         """
