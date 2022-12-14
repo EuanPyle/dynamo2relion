@@ -1,0 +1,61 @@
+# https://peps.python.org/pep-0517/
+[build-system]
+requires = ["setuptools>=45", "wheel", "setuptools-scm>=6.2"]
+build-backend = "setuptools.build_meta"
+
+# https://peps.python.org/pep-0621/
+[project]
+name = "dynamo2relion"
+description = "Converts Dynamo table files to RELION star files"
+readme = "README.md"
+requires-python = ">=3.6"
+license = {text = "BSD 3-Clause License"}
+authors = [
+  {email = "euanpyle@gmail.com"},
+  {name = "Euan Pyle"},
+]
+classifiers = [
+    "Development Status :: 3 - Alpha",
+    "License :: OSI Approved :: BSD License",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.6",
+    "Programming Language :: Python :: 3.7",
+    "Programming Language :: Python :: 3.8",
+    "Programming Language :: Python :: 3.9",
+    "Programming Language :: Python :: 3.10",
+]
+dynamic = ["version"]
+dependencies = [
+    "starfile",
+    "dynamotable",
+    "eulerangles",
+    "typer",
+    "pandas",
+]
+
+# extras
+# https://peps.python.org/pep-0621/#dependencies-optional-dependencies
+[project.optional-dependencies]
+test = [
+    "pytest>=6.0",
+    "pytest-cov",
+]
+
+[project.urls]
+homepage = "https://github.com/EuanPyle/dynamo2relion"
+repository = "https://github.com/EuanPyle/dynamo2relion"
+
+# same as console_scripts entry point
+[project.scripts]
+dynamo2relion = "dynamo2relion.dynamo2relion:cli"
+
+# https://setuptools.pypa.io/en/latest/userguide/pyproject_config.html
+[tool.setuptools]
+zip-safe = false
+include-package-data = true
+packages = {find = {where = ["src"], exclude=[]}}
+
+[tool.setuptools_scm]
+write_to = "src/dynamo2relion/_version.py"
+
+

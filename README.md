@@ -17,7 +17,7 @@ pip install dynamo2relion
 Your directory containing the tilt series directories must be structured as follows:
 
 ```sh
-TS_Directory #Directory containing all TS directories, link to this directory
+tilt_series_directory #Directory containing all TS directories, link to this directory
 |
 --> TS_01 #Directory containing TS_01              
        |
@@ -30,20 +30,13 @@ TS_Directory #Directory containing all TS directories, link to this directory
 --> etc...
 ```
 
-The program will ask you the path to TS_Directory. No directories other than the TS_* directories should be present in TS_Directory. Naming convention for the TS_* directories can be any mix of upper of lower case TS and any numbering convention desired. 
+The program will ask you the path to tilt_series_directory. No directories other than the TS_* directories should be present in tilt_series_directory. Naming convention for the TS_* directories can be any mix of upper of lower case TS and any numbering convention desired. 
 
 ## Usage
 
-Invoke from the command line via typing:
+Instructions for use can be found via typing:
 ```sh
-dynamo2relion
-```
-and input:
-```sh
-Input Dynamo table file: example.tbl
-Output STAR file: test.star
-Path to TS directory: /Path/to/directory/containing/all/ts/directories/as/shown/above
-Binning level of Dynamo table (enter 1 for unbinned, binning is done using IMOD convention): 8
+dynamo2relion --help
 ```
 
 For binning level, simply enter 1 if the coordinates of your particles in the Dynamo table were picked from an unbinned tomogram. If the tomograms the particles were picked in were binned, add the correct binning level: binning is done using IMOD convention, i.e. for a pixel size of 1 A/px, a binning level of 8 would yield 8 A/px. 
